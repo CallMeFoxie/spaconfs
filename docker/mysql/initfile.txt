@@ -1,0 +1,3 @@
+ALTER USER 'root'@'localhost' IDENTIFIED BY 'passw0rdX3X';
+SHUTDOWN;
+

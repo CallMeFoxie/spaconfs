@@ -1,6 +1,7 @@
 #!/usr/bin/env python
 
 import Ice, Murmur
+import socket
 import logging
 
 DEFAULT_HOST = "mumble-server"
@@ -60,8 +61,8 @@ class Connection:
         logging.debug("Connecting to %s:%s..." % self.host)
         self.meta = Murmur.MetaPrx.checkedCast(self.ice.stringToProxy('Meta:tcp -h %s -p %s' % self.host))
         logging.debug("Connection to %s:%s successful" % self.host)
-
-        self.adapter = self.ice.createObjectAdapterWithEndpoints("Callback.Client", "tcp -h %s" % self.host[0])
+        selfip = socket.gethostbyname(socket.gethostname())
+        self.adapter = self.ice.createObjectAdapterWithEndpoints("Callback.Client", "tcp -h %s" % selfip)
         self.adapter.activate()
         self._callbackSetup()
 
