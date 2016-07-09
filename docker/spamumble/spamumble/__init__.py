@@ -7,7 +7,7 @@ from notifier import NotifyOnConnect
 from kindergarden import KindergardenOnConnect
 
 def main():
-    logging.basicConfig(filename='spamumble.log', format="%(asctime)s (%(levelname)s) [%(module)s] %(message)s", level=logging.DEBUG)
+    logging.basicConfig(filename='/dev/stdout', format="%(asctime)s (%(levelname)s) [%(module)s] %(message)s", level=logging.DEBUG)
     try:
         connection = Connection() 
         connection.setAuthenticator(ForumAuthenticator(connection))

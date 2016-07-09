@@ -42,7 +42,7 @@ class ForumAuthenticator(Murmur.ServerAuthenticator):
         self.con = con
         self.db = ForumDB()
         self.usercache = {}
-        self.avatar_path = "/var/www/specialattack_sub/forum/images/avatars/upload/dcd83b3563190c3d191b4ec7315f2171_"
+        self.avatar_path = "/avatars/dcd83b3563190c3d191b4ec7315f2171_"
         self.id_offset = 1000000000
         self.pwhash = PasswordHash()
         self.botpw = "lipFLI9hhc0lI"

@@ -4,7 +4,7 @@ MAINTAINER Ashley
 RUN apt-get update
 RUN apt-get dist-upgrade -y --no-install-recommends --no-install-suggests
 RUN apt-get install -y --no-install-recommends --no-install-suggests ice35-translators python-zeroc-ice wget ice35-slice ca-certificates
-RUN apt-get install -y --no-install-recommends --no-install-suggests python python-mysqldb python-passlib python-pythonmagick
+RUN apt-get install -y --no-install-recommends --no-install-suggests python python-mysqldb python-passlib python-pythonmagick python-bcrypt
 COPY spamumble/ /opt/spamumble/
 COPY compile.sh /opt/compile.sh
 RUN /opt/compile.sh
