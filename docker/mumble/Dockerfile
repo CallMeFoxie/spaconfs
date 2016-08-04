@@ -3,10 +3,12 @@ MAINTAINER Ashley
 
 RUN apt-get update
 RUN apt-get dist-upgrade -y --no-install-recommends --no-install-suggests
-COPY add-apt-repository.sh /tmp/apt-add-repository.sh
+COPY ../add-apt-repository.sh /tmp/apt-add-repository.sh
 RUN /tmp/apt-add-repository.sh ppa:mumble/release
 RUN apt-get install -y --allow-unauthenticated --no-install-recommends --no-install-suggests mumble-server
 RUN rm /etc/init.d/mumble-server
+RUN apt-get -y autoremove
+RUN apt-get -y clean
 
 EXPOSE 64738/tcp 64738/udp 6502/tcp
 

@@ -8,7 +8,8 @@ RUN apt-get install -y --no-install-recommends --no-install-suggests python pyth
 COPY spamumble/ /opt/spamumble/
 COPY compile.sh /opt/compile.sh
 RUN /opt/compile.sh
-RUN apt-get remove -y ice35-translators wget ice35-slice wget ca-certificates
+RUN apt-get remove --purge -y ice35-translators wget ice35-slice wget ca-certificates
 RUN apt-get autoremove -y
+RUN apt-get clean
 
 ENTRYPOINT ["/usr/bin/python", "-u", "/opt/spamumble/__init__.py"]

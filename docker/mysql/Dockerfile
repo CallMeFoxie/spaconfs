@@ -8,6 +8,8 @@ RUN apt-get install -y --no-install-recommends --no-install-suggests mysql-serve
 RUN mkdir /var/run/mysqld && chmod 0777 /var/run/mysqld && sed -i "/log_error/d" /etc/mysql/mysql.conf.d/mysqld.cnf
 COPY initfile.txt /tmp/initfile.txt
 RUN /usr/sbin/mysqld --init-file=/tmp/initfile.txt
+RUN apt-get -y autoremove
+RUN apt-get clean
 
 
 EXPOSE 3306/tcp
